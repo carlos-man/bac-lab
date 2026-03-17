@@ -149,45 +149,6 @@ meraki:
                 storm_control: true
                 rstp: true
                 stp_guard: bpdu guard
-          - name: ${access_switch_02_name}
-            serial: ${access_switch_02_serial}
-            tags:
-              - test
-            lat: ${lat}
-            lng: ${lng}
-            address: ${address}
-            notes: Small Branch Notes Switch
-            switch:
-              ports:
-              - port_id_ranges:
-                - from: 1
-                  to: 13
-                name: Uplink Trunk Port
-                enabled: true
-                type: trunk
-                tags:
-                  - uplink
-                  - trunk
-                vlan: 1
-                allowed_vlans: 1,10,20,30,50,999
-                link_negotiation: Auto negotiate
-                udld: Alert only
-                storm_control: true
-                rstp: true
-              - port_id_ranges:
-                - from: 14
-                  to: 24  
-                name: Access Port
-                enabled: true
-                type: access
-                tags:
-                  - access
-                vlan: 10
-                voice_vlan: 20
-                link_negotiation: Auto negotiate
-                storm_control: true
-                rstp: true
-                stp_guard: bpdu guard      
           # 
           # The below code does the following:
           #
@@ -206,21 +167,3 @@ meraki:
             lng: ${lng}
             address: ${address}
             notes: Small Branch Notes Access Point
-          #
-          # The below code does the following:
-          #
-          # Second access point configuration
-          #
-          # Defines the name, serial number, geolocation coordinates
-          # (latitude & longitude), and address variables for the
-          # second access point within the site to which the template
-          # is applied.
-          #            
-          - name: ${ap_02_name}
-            serial: ${ap_02_serial}
-            tags:
-              - test
-            lat: ${lat}
-            lng: ${lng}
-            address: ${address}
-            notes: Small Branch Notes Appliance

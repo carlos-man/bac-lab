@@ -57,14 +57,14 @@ meraki:
           remote_status_page: true
           secure_port: false
           local_status_page_authentication:
-            username: !env local_page_username
-            password: !env local_page_password
+            username: username
+            password: secretPassword123!
           named_vlans: true
         snmp:
           access: users
           users:
-            - username: !env snmp_username
-              passphrase: !env snmp_passphrase
+            - username: snmpUser
+              passphrase: secretPass123!
         syslog_servers:
           - host: ${syslog_server}
             port: ${syslog_port}

@@ -236,20 +236,20 @@ meraki:
                 accounting_servers:
                   - host: ${radius_accounting_server1_host}
                     port: 1813
-                    secret: !env radius_accounting_server1_secret
+                    secret: SecretPass123!
                   - host: ${radius_accounting_server2_host}
                     port: 1813
-                    secret: !env radius_accounting_server1_secret
+                    secret: SecretPass123!
                 attribute_for_group_policies: Filter-Id
                 coa: false
                 override: true
                 servers:
                   - host: ${radius_server1_host}
                     port: 1812
-                    secret: !env radius_server1_secret
+                    secret: SecretPass123!
                   - host: ${radius_server2_host}
                     port: 1812
-                    secret: !env radius_server1_secret
+                    secret: SecretPass123!
                 testing: true
               unavailability_schedules:
                 enabled: ${data_ssid_schedules_enabled}

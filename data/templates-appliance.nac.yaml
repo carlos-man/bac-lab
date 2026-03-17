@@ -90,12 +90,12 @@ meraki:
                       use_vpn: true
                     - local_subnet: ${vlan20_subnet}
                       use_vpn: true
-                    - local_subnet: ${vlan30_subnet}
-                      use_vpn: true
-                    - local_subnet: ${vlan50_subnet}
-                      use_vpn: false
-                    - local_subnet: ${vlan999_subnet}
-                      use_vpn: true
+                    # - local_subnet: ${vlan30_subnet}
+                    #   use_vpn: true
+                    # - local_subnet: ${vlan50_subnet}
+                    #   use_vpn: false
+                    # - local_subnet: ${vlan999_subnet}
+                    #   use_vpn: true
       #
       # The below code does the following:
       #
@@ -124,7 +124,7 @@ meraki:
                             to: 14
               enabled: true
               type: trunk
-              allowed_vlans: "1,10,20,30,50,999"
+              allowed_vlans: "1,10,20"
               vlan: 1
       #
       # The below code does the following:
@@ -176,51 +176,51 @@ meraki:
               #   - ${corp_dhcp_server1}
               #   - ${corp_dhcp_server2}
               mandatory_dhcp: false
-            - vlan_id: 30
-              name: "Iot"
-              subnet: ${vlan30_subnet}
-              appliance_ip: ${vlan30_appliance_ip}
-              dhcp_handling: "Run a DHCP server"
+            # - vlan_id: 30
+            #   name: "Iot"
+            #   subnet: ${vlan30_subnet}
+            #   appliance_ip: ${vlan30_appliance_ip}
+            #   dhcp_handling: "Run a DHCP server"
               # dhcp_handling: "Relay DHCP to another server"
               # dhcp_relay_server_ips:
               #   - ${corp_dhcp_server1}
               #   - ${corp_dhcp_server2}
-              mandatory_dhcp: false
-            - vlan_id: 50
-              name: "Guest"
-              subnet: ${vlan50_subnet}
-              appliance_ip: ${vlan50_appliance_ip}
-              dns_nameservers: opendns
-              # dhcp_handling: "Run a DHCP server"
-              # dhcp_lease_time: "1 day"
-              # dhcp_boot_options: false
-              mandatory_dhcp: false
-              dhcp_handling: "Relay DHCP to another server"
-              dhcp_relay_server_ips:
-                - ${corp_dhcp_server1}
-                - ${corp_dhcp_server2}
-            - vlan_id: 999
-              name: "Infra"
-              subnet: ${vlan999_subnet}
-              appliance_ip: ${vlan999_appliance_ip}
-              dns_nameservers: opendns
-              dhcp_handling: "Run a DHCP server"
-              dhcp_lease_time: "1 day"
-              dhcp_boot_options: false
-              mandatory_dhcp: false
-              fixed_ip_assignments:
-               - name: "Switch 1 Management IP"
-                 ip: ${fixed_ip_sw1}
-                 mac: ${switch_1_mac}
-               - name: "Switch 2 Management IP"
-                 ip: ${fixed_ip_sw2}
-                 mac: ${switch_2_mac}
-               - name: "AP 1 Management IP"
-                 ip: ${fixed_ip_ap1}
-                 mac: ${ap_1_mac}
-               - name: "AP 2 Management IP"
-                 ip: ${fixed_ip_ap2}
-                 mac: ${ap_2_mac}
+              # mandatory_dhcp: false
+            # - vlan_id: 50
+            #   name: "Guest"
+            #   subnet: ${vlan50_subnet}
+            #   appliance_ip: ${vlan50_appliance_ip}
+            #   dns_nameservers: opendns
+            #   # dhcp_handling: "Run a DHCP server"
+            #   # dhcp_lease_time: "1 day"
+            #   # dhcp_boot_options: false
+            #   mandatory_dhcp: false
+            #   dhcp_handling: "Relay DHCP to another server"
+            #   dhcp_relay_server_ips:
+            #     - ${corp_dhcp_server1}
+            #     - ${corp_dhcp_server2}
+            # - vlan_id: 999
+            #   name: "Infra"
+            #   subnet: ${vlan999_subnet}
+            #   appliance_ip: ${vlan999_appliance_ip}
+            #   dns_nameservers: opendns
+            #   dhcp_handling: "Run a DHCP server"
+            #   dhcp_lease_time: "1 day"
+            #   dhcp_boot_options: false
+            #   mandatory_dhcp: false
+              # fixed_ip_assignments:
+              #  - name: "Switch 1 Management IP"
+              #    ip: ${fixed_ip_sw1}
+              #    mac: ${switch_1_mac}
+              #  - name: "Switch 2 Management IP"
+              #    ip: ${fixed_ip_sw2}
+              #    mac: ${switch_2_mac}
+              #  - name: "AP 1 Management IP"
+              #    ip: ${fixed_ip_ap1}
+              #    mac: ${ap_1_mac}
+              #  - name: "AP 2 Management IP"
+              #    ip: ${fixed_ip_ap2}
+              #    mac: ${ap_2_mac}
       #
       # The below code does the following:
       #
